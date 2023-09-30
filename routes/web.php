@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TonacjeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,17 @@ Route::get('/test', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//autoryzowane - panel admina
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
+        //return view('adminViews.admin_dashboard');
+        return view('adminViews.empty');
+    })->name('admin');
+
+
+
+    Route::resource('/admin/tonacje', TonacjeController::class);
+
+});
