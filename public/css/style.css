@@ -1,0 +1,13 @@
+.navbar {
+    transition: all 0.3s;
+}
+
+.song-text {
+    padding: 20px;
+}
+
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
